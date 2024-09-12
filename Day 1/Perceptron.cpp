@@ -1,0 +1,34 @@
+#include <iostream>
+#include <cstdlib> 
+#include <ctime>   
+
+using namespace std;
+
+class Perceptron {
+public:
+    static const int Length = 2;
+    double weights[Length];
+
+    Perceptron() {
+        Random random;
+
+        for (int i = 0; i < Length; i++) {
+            weights[i] = random.RandDouble(-1.0, 1.0);
+        }
+    }
+
+    int guess(double inputs[]) {
+        double sum = 0.0;
+        for (int i = 0; i < Length; i++) {
+            sum += inputs[i] * weights[i];
+        }
+
+        int output = sign(sum);
+        return output;
+    }
+
+    // The activation function
+    int sign(double num) {
+        return (num < 0) ? -1 : 1;
+    }
+};
