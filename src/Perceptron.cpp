@@ -6,7 +6,7 @@ using namespace std;
 
 class Perceptron {
 public:
-    static const int Length = 2;
+    static const int Length = 3;
     double weights[Length];
     double learningRate = 0.1;
 

@@ -6,6 +6,7 @@ class Point {
     public:
         float x;
         float y;
+        float bias =1;
         int label;
 
         Point() {

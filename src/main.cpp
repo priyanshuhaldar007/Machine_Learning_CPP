@@ -24,7 +24,7 @@ int main() {
     cout << "Sl. No. \t Point X \t Point Y \t Point Label \t Guess \t Correct or not" << endl;
     int correct_count = 0;
     for(int i = 0; i < limit; i++){
-        double inputs[2] = {points[i].x, points[i].y};
+        double inputs[3] = {points[i].x, points[i].y, points[i].bias};
 
         // Adding the points
         x.push_back(points[i].x) ;
@@ -70,7 +70,7 @@ int main() {
     // Plotting a line
     std::vector<int> plane = {-200, 200};
     std::vector<int> line2 = {p.func(-200),p.func(200)};
-    plt::plot(plane,line2,"b-");
+    plt::plot(plane,line2,{{"color", "red"}, {"linestyle", ":"}});
 
     plt::save("./plot.png");
 
