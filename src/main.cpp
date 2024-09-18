@@ -11,7 +11,9 @@ int main() {
     // Seed the random number generator only once in the main function
     srand(static_cast<unsigned>(time(0)));
 
-    vector<Point> points(100);
+    int limit =150;
+
+    vector<Point> points(limit);
 
     // Ploting the points
     vector<float> x ;
@@ -21,7 +23,7 @@ int main() {
 
     cout << "Sl. No. \t Point X \t Point Y \t Point Label \t Guess \t Correct or not" << endl;
     int correct_count = 0;
-    for(int i = 0; i < 100; i++){
+    for(int i = 0; i < limit; i++){
         double inputs[2] = {points[i].x, points[i].y};
 
         // Adding the points
@@ -60,6 +62,15 @@ int main() {
     // Ploting the points
     // plt::scatter(x, y, 100, {{"color", "green"}});
     // plt::plot(x, y);
+
+    // Set axis limits for better visualization
+    plt::xlim(-200, 200);
+    plt::ylim(-200, 200);
+
+    // Plotting a line
+    std::vector<int> plane = {-200, 200};
+    std::vector<int> line2 = {p.func(-200),p.func(200)};
+    plt::plot(plane,line2,"b-");
 
     plt::save("./plot.png");
 

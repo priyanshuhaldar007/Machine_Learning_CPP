@@ -43,4 +43,9 @@ public:
         }
         
     }
+
+    int func(int x){
+        // y = mx + c
+        return 1*x + 120;
+    }
 };

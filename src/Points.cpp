@@ -10,11 +10,12 @@ class Point {
 
         Point() {
             Random random;
+            Perceptron p;
 
-            x = random.RandInt(0, 400);
-            y = random.RandInt(0, 400);
+            x = random.RandInt(-200, 200);
+            y = random.RandInt(-200, 200);
 
-            if( x >= y ){
+            if( y > p.func(x) ){
                 label = 1;
             }
             else {

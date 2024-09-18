@@ -1,22 +1,26 @@
 #include "matplotlibcpp.h"
-#include <vector>
-
 namespace plt = matplotlibcpp;
 
 int main() {
-    std::vector<int> x = {1, 2, 3, 4, 5};
-    std::vector<int> y = {1, 4, 9, 16, 25};
-    
-    for (size_t i = 0; i < x.size(); ++i) {
-        std::string fill_color = (y[i] > 10) ? "green" : "red";    // Fill color condition
-        std::string border_color = (x[i] % 2 == 0) ? "blue" : "black";  // Border color condition
+    // Data for X and Y axis
+    std::vector<double> x = {-10, 10}; // X-axis line
+    std::vector<double> y = {0, 0};    // Y-values are zero to get a horizontal line
 
-        // Draw circle with fill and border color
-        plt::scatter(std::vector<int>{x[i]}, std::vector<int>{y[i]}, 
-                     100, {{"color", fill_color}, {"edgecolor", border_color}});
-    }
+    std::vector<double> y2 = {-10, 10}; // Y-axis line
+    std::vector<double> x2 = {0, 0};    // X-values are zero to get a vertical line
 
-    // plt::show();
+    // Plotting the axis lines
+    plt::plot(x, x, "b-");  // Horizontal axis in black
+    // plt::plot(x2, x2, "k-"); // Vertical axis in black
+
+    // Set axis limits for better visualization
+    plt::xlim(-10, 10);
+    plt::ylim(-10, 10);
+
+    // Show the plot
+    plt::show();
+
     plt::save("./plot.png");
+
     return 0;
 }
